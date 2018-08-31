@@ -8,9 +8,9 @@ let cookieParser = require('cookie-parser');
 let routesPath = './route';
 let globalErrMiddleware = require('./middlewares/appMiddleware');
 let routeLogger = require('./middlewares/appLogger');
-
+const helmet = require('helmet');
 // middleware
-
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());

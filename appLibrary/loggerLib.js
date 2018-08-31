@@ -1,8 +1,8 @@
-const logger = require('pino');
+const logger = require('pino')();
 const time = require('./timeLib');
 
 let captureError = (errMsg, errOrgn, errlvl) => { logger.error({
-    timeStamp: time.convLocTime,
+    timeStamp: time.getLocTime,
     errorMessage: errMsg,
     errorOrigin: errOrgn,
     errorLevel: errlvl
@@ -10,7 +10,7 @@ let captureError = (errMsg, errOrgn, errlvl) => { logger.error({
 
 let captureInfo = (msg, org, imp) => {
     let response = {
-        timeStamp: time.convLocTime,
+        timeStamp: time.getLocTime,
         message: msg,
         origin: org,
         importanceLevel: imp
